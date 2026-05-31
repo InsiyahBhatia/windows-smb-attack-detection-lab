@@ -51,9 +51,9 @@ The attacker ran an Nmap scan from Kali:
 nmap -Pn -sS -p 1-1000 192.168.56.4
 ```
 
-Observed result: SMB-related ports were reachable, including TCP `445`.
+Observed result: SMB-related ports were reachable, including TCP `445` (`microsoft-ds`).
 
-![Nmap scan results showing open Windows services](../screenshots/11-nmap-smb-scan-results.png)
+![Nmap scan results showing TCP 445 open for SMB](../screenshots/11-nmap-open-smb-port.png)
 
 Wireshark confirmed scan behavior from `192.168.56.3` to the Windows target:
 

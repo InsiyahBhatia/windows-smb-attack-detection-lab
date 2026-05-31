@@ -14,7 +14,7 @@ This index maps each screenshot to the question it answers during the investigat
 | `08-sysmon-eid1-whoami.png` | Sysmon Event ID `1` process creation for `whoami` |
 | `09-sysmon-eid1-powershell.png` | Sysmon Event ID `1` process creation for PowerShell |
 | `10-sysmon-eid3-network.png` | Sysmon Event ID `3` network connection telemetry |
-| `11-nmap-smb-scan-results.png` | Nmap scan results against Windows target |
+| `11-nmap-open-smb-port.png` | Nmap scan results showing TCP `445` open for SMB |
 | `12-wireshark-syn-scan.png` | Wireshark SYN scan evidence |
 | `13-netexec-smb-bruteforce.png` | NetExec SMB password guessing output |
 | `14-security-event-query.png` | Windows Security log query evidence |

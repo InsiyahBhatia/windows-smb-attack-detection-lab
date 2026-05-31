@@ -10,7 +10,7 @@
 
   <EventFiltering>
 
-    <!-- ==================== EVENT ID 1 — Process Creation ==================== -->
+    <!-- ==================== EVENT ID 1 - Process Creation ==================== -->
     <!-- Captures all process creation with full command line -->
     <RuleGroup name="" groupRelation="or">
       <ProcessCreate onmatch="exclude">
@@ -20,7 +20,7 @@
       </ProcessCreate>
     </RuleGroup>
 
-    <!-- ==================== EVENT ID 2 — File Creation Time Changed ========= -->
+    <!-- ==================== EVENT ID 2 - File Creation Time Changed ========= -->
     <RuleGroup name="" groupRelation="or">
       <FileCreateTime onmatch="include">
         <TargetFilename condition="contains">Downloads</TargetFilename>
@@ -31,7 +31,7 @@
       </FileCreateTime>
     </RuleGroup>
 
-    <!-- ==================== EVENT ID 3 — Network Connection ================= -->
+    <!-- ==================== EVENT ID 3 - Network Connection ================= -->
     <!-- Captures all outbound and inbound network connections -->
     <RuleGroup name="" groupRelation="or">
       <NetworkConnect onmatch="exclude">
@@ -41,7 +41,7 @@
       </NetworkConnect>
     </RuleGroup>
 
-    <!-- ==================== EVENT ID 5 — Process Terminated ================= -->
+    <!-- ==================== EVENT ID 5 - Process Terminated ================= -->
     <RuleGroup name="" groupRelation="or">
       <ProcessTerminate onmatch="include">
         <Image condition="contains">powershell</Image>
@@ -52,7 +52,7 @@
       </ProcessTerminate>
     </RuleGroup>
 
-    <!-- ==================== EVENT ID 7 — Image Loaded ======================= -->
+    <!-- ==================== EVENT ID 7 - Image Loaded ======================= -->
     <RuleGroup name="" groupRelation="or">
       <ImageLoad onmatch="include">
         <!-- Monitor for credential-access DLL loads -->
@@ -62,14 +62,14 @@
       </ImageLoad>
     </RuleGroup>
 
-    <!-- ==================== EVENT ID 8 — CreateRemoteThread ================= -->
+    <!-- ==================== EVENT ID 8 - CreateRemoteThread ================= -->
     <RuleGroup name="" groupRelation="or">
       <CreateRemoteThread onmatch="include">
-        <!-- All remote thread creation is suspicious — include everything -->
+        <!-- All remote thread creation is suspicious - include everything -->
       </CreateRemoteThread>
     </RuleGroup>
 
-    <!-- ==================== EVENT ID 10 — Process Access ==================== -->
+    <!-- ==================== EVENT ID 10 - Process Access ==================== -->
     <RuleGroup name="" groupRelation="or">
       <ProcessAccess onmatch="include">
         <!-- Credential dumping targets LSASS -->
@@ -79,7 +79,7 @@
       </ProcessAccess>
     </RuleGroup>
 
-    <!-- ==================== EVENT ID 11 — File Created ====================== -->
+    <!-- ==================== EVENT ID 11 - File Created ====================== -->
     <RuleGroup name="" groupRelation="or">
       <FileCreate onmatch="include">
         <TargetFilename condition="end with">.exe</TargetFilename>
@@ -91,7 +91,7 @@
       </FileCreate>
     </RuleGroup>
 
-    <!-- ==================== EVENT ID 13 — Registry Value Set ================ -->
+    <!-- ==================== EVENT ID 13 - Registry Value Set ================ -->
     <RuleGroup name="" groupRelation="or">
       <RegistryEvent onmatch="include">
         <!-- Persistence via Run keys -->
@@ -104,7 +104,7 @@
       </RegistryEvent>
     </RuleGroup>
 
-    <!-- ==================== EVENT ID 22 — DNS Query ========================= -->
+    <!-- ==================== EVENT ID 22 - DNS Query ========================= -->
     <RuleGroup name="" groupRelation="or">
       <DnsQuery onmatch="exclude">
         <!-- Exclude common Microsoft domains -->

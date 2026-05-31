@@ -78,6 +78,8 @@ Apply the included configuration:
 Sysmon64.exe -c configs\sysmonconfig-export.xml
 ```
 
+The included XML is based on the public SwiftOnSecurity Sysmon configuration and is kept in this repo so the lab can be reproduced with the same telemetry assumptions.
+
 Confirm the service is installed and running:
 
 ```cmd

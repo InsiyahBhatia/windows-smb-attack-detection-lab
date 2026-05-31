@@ -52,7 +52,7 @@ flowchart LR
 | Evidence | Screenshot |
 | --- | --- |
 | Sysmon process telemetry | ![Sysmon Event ID 1 showing PowerShell process creation](screenshots/09-sysmon-eid1-powershell.png) |
-| Nmap SMB scan | ![Nmap scan results showing SMB open on the target](screenshots/11-nmap-smb-scan-results.png) |
+| Nmap open ports | ![Nmap scan results showing TCP 445 open for SMB](screenshots/11-nmap-open-smb-port.png) |
 | NetExec brute force output | ![NetExec brute force output showing failed and successful authentication](screenshots/13-netexec-smb-bruteforce.png) |
 | Successful Windows logon | ![Windows Event ID 4624 showing successful network logon](screenshots/15-eid4624-successful-logon.png) |
 | Wireshark SMB traffic | ![Wireshark showing SMB and NTLMSSP traffic](screenshots/17-wireshark-smb-ntlm-traffic.png) |
@@ -95,6 +95,10 @@ soc-sysmon-lab/
 | Nmap | Reconnaissance and service discovery |
 | smbclient | SMB share enumeration |
 | NetExec | Controlled SMB password guessing |
+
+## Sysmon Configuration
+
+The Sysmon configuration in [configs/sysmonconfig-export.xml](configs/sysmonconfig-export.xml) is based on the public [SwiftOnSecurity Sysmon config](https://github.com/SwiftOnSecurity/sysmon-config). It is included for reproducibility and attribution.
 
 ## MITRE ATT&CK Mapping
 
