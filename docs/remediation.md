@@ -25,7 +25,7 @@
 Alert name:
 
 ```text
-Possible SMB Brute Force Followed by Successful Network Logon
+Possible SMB Dictionary Attack Followed by Successful Network Logon
 ```
 
 Core condition:

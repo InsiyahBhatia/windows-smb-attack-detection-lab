@@ -1,6 +1,6 @@
 # Lab Setup Guide
 
-This guide documents the environment used for the SMB brute force detection lab. The setup intentionally uses a host-only network so the attack traffic stays inside the local virtual lab.
+This guide documents the environment used for the SMB password attack detection lab. The setup intentionally uses a host-only network so the attack traffic stays inside the local virtual lab.
 
 ## Requirements
 
@@ -11,7 +11,7 @@ This guide documents the environment used for the SMB brute force detection lab.
 | Kali Linux VM | Attacker and validation system |
 | Sysmon | Endpoint telemetry |
 | Wireshark | Packet capture |
-| Nmap, smbclient, NetExec | Reconnaissance, enumeration, and controlled brute force testing |
+| Nmap, smbclient, NetExec | Reconnaissance, enumeration, and controlled dictionary attack testing |
 
 Recommended host resources: 8 GB RAM or more and at least 60 GB free disk space.
 

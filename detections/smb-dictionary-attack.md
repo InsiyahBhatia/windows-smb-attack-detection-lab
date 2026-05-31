@@ -1,8 +1,8 @@
-# Detection Engineering: SMB Brute Force
+# Detection Engineering: SMB Dictionary Attack
 
 ## Detection Goal
 
-Identify SMB password guessing against Windows accounts by detecting repeated failed logons followed by a successful network logon from the same source.
+Identify SMB dictionary-based password guessing against Windows accounts by detecting repeated failed logons followed by a successful network logon from the same source.
 
 ## Required Data Sources
 
@@ -85,4 +85,4 @@ tcp.port == 445 && ip.addr == 192.168.56.3
 
 ## Recommended Alert Title
 
-`Possible SMB Brute Force Followed by Successful Network Logon`
+`Possible SMB Dictionary Attack Followed by Successful Network Logon`

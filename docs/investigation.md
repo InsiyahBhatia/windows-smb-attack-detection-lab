@@ -1,8 +1,8 @@
-# Investigation Report: SMB Brute Force Attack
+# Investigation Report: SMB Dictionary Attack
 
 ## Executive Summary
 
-A Kali Linux host at `192.168.56.3` scanned a Windows 10 host at `192.168.56.4`, identified SMB exposure on TCP `445`, enumerated SMB access, and brute-forced the local account `user1`. Windows Security logs showed multiple failed authentication attempts followed by a successful network logon. Wireshark confirmed SMB and NTLM traffic between the same systems.
+A Kali Linux host at `192.168.56.3` scanned a Windows 10 host at `192.168.56.4`, identified SMB exposure on TCP `445`, enumerated SMB access, and used a password list to perform a dictionary attack against the local account `user1`. Windows Security logs showed multiple failed authentication attempts followed by a successful network logon. Wireshark confirmed SMB and NTLM traffic between the same systems.
 
 The activity is consistent with SMB password guessing followed by valid account use.
 
@@ -59,7 +59,7 @@ Wireshark confirmed scan behavior from `192.168.56.3` to the Windows target:
 
 ![Wireshark showing SYN scan traffic](../screenshots/12-wireshark-syn-scan.png)
 
-## Phase 3: SMB Password Guessing
+## Phase 3: SMB Dictionary Attack
 
 The attacker used NetExec to test passwords against the `user1` account:
 
@@ -69,7 +69,7 @@ nxc smb 192.168.56.4 -u user1 -p passwords.txt --continue-on-success
 
 The output showed failed authentication attempts followed by a successful login using the weak password.
 
-![NetExec brute force output](../screenshots/13-netexec-smb-bruteforce.png)
+![NetExec dictionary attack output](../screenshots/13-netexec-smb-dictionary-attack.png)
 
 ## Phase 4: Windows Log Detection
 
@@ -141,7 +141,7 @@ Network indicators:
 | --- | --- | --- |
 | Active Scanning | T1595 | Nmap scan and Wireshark SYN traffic |
 | Network Share Discovery | T1135 | SMB enumeration phase |
-| Brute Force | T1110 | Repeated Event ID `4625` failures |
+| Password Guessing | T1110.001 | Dictionary-based password attempts produced repeated Event ID `4625` failures |
 | Valid Accounts | T1078 | Event ID `4624` successful network logon |
 
 ## Conclusion

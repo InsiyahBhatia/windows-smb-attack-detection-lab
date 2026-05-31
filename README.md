@@ -1,6 +1,6 @@
-# Windows SMB Brute Force Detection Lab
+# Windows SMB Password Attack Detection Lab
 
-This repository documents a small SOC investigation lab built to simulate, detect, and analyze an SMB brute force attack against a Windows endpoint. The lab uses Kali Linux as the attacker system and Windows 10 as the monitored host, with Sysmon, Windows Security logs, and Wireshark used as evidence sources.
+This repository documents a small SOC investigation lab built to simulate, detect, and analyze an SMB dictionary attack against a Windows endpoint. The lab uses Kali Linux as the attacker system and Windows 10 as the monitored host, with Sysmon, Windows Security logs, and Wireshark used as evidence sources.
 
 The goal is to show the full analyst workflow: build the environment, generate controlled attack telemetry, investigate the activity, map it to MITRE ATT&CK, and document practical detection and hardening recommendations.
 
@@ -8,7 +8,7 @@ The goal is to show the full analyst workflow: build the environment, generate c
 
 | Area | Detail |
 | --- | --- |
-| Scenario | SMB brute force against a Windows 10 host |
+| Scenario | SMB dictionary attack against a Windows 10 host |
 | Attacker | Kali Linux, `192.168.56.3` |
 | Target | Windows 10, `192.168.56.4` |
 | Primary service | SMB, `445/tcp` |
@@ -53,7 +53,7 @@ flowchart LR
 | --- | --- |
 | Sysmon process telemetry | ![Sysmon Event ID 1 showing PowerShell process creation](screenshots/09-sysmon-eid1-powershell.png) |
 | Nmap open ports | ![Nmap scan results showing TCP 445 open for SMB](screenshots/11-nmap-open-smb-port.png) |
-| NetExec brute force output | ![NetExec brute force output showing failed and successful authentication](screenshots/13-netexec-smb-bruteforce.png) |
+| NetExec dictionary attack output | ![NetExec dictionary attack output showing failed and successful authentication](screenshots/13-netexec-smb-dictionary-attack.png) |
 | Successful Windows logon | ![Windows Event ID 4624 showing successful network logon](screenshots/15-eid4624-successful-logon.png) |
 | Wireshark SMB traffic | ![Wireshark showing SMB and NTLMSSP traffic](screenshots/17-wireshark-smb-ntlm-traffic.png) |
 
@@ -63,7 +63,7 @@ flowchart LR
 | --- | --- |
 | [Lab Setup Guide](docs/setup.md) | Build the Windows/Kali lab and configure telemetry |
 | [Investigation Report](docs/investigation.md) | Walk through the attack timeline, evidence, and findings |
-| [Detection Engineering Notes](detections/smb-bruteforce.md) | Detection logic, event fields, and triage workflow |
+| [Detection Engineering Notes](detections/smb-dictionary-attack.md) | Detection logic, event fields, and triage workflow |
 | [Evidence Index](docs/evidence-index.md) | Screenshot inventory and what each image proves |
 | [Remediation Plan](docs/remediation.md) | Hardening steps and control recommendations |
 
@@ -78,7 +78,7 @@ soc-sysmon-lab/
 |   |-- evidence-index.md
 |   `-- remediation.md
 |-- detections/
-|   `-- smb-bruteforce.md
+|   `-- smb-dictionary-attack.md
 |-- configs/
 |   `-- sysmonconfig-export.xml
 `-- screenshots/
@@ -106,7 +106,7 @@ The Sysmon configuration in [configs/sysmonconfig-export.xml](configs/sysmonconf
 | --- | --- | --- |
 | Reconnaissance | T1595 - Active Scanning | Nmap SYN scan and Wireshark traffic |
 | Discovery | T1135 - Network Share Discovery | SMB share enumeration |
-| Credential Access | T1110 - Brute Force | Repeated Event ID `4625` failures |
+| Credential Access | T1110.001 - Password Guessing | Dictionary-based password attempts produced repeated Event ID `4625` failures |
 | Initial Access | T1078 - Valid Accounts | Event ID `4624` successful network logon |
 
 ## Skills Highlighted

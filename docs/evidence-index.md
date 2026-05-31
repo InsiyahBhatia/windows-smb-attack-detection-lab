@@ -16,7 +16,7 @@ This index maps each screenshot to the question it answers during the investigat
 | `10-sysmon-eid3-network.png` | Sysmon Event ID `3` network connection telemetry |
 | `11-nmap-open-smb-port.png` | Nmap scan results showing TCP `445` open for SMB |
 | `12-wireshark-syn-scan.png` | Wireshark SYN scan evidence |
-| `13-netexec-smb-bruteforce.png` | NetExec SMB password guessing output |
+| `13-netexec-smb-dictionary-attack.png` | NetExec SMB dictionary attack output |
 | `14-security-event-query.png` | Windows Security log query evidence |
 | `15-eid4624-successful-logon.png` | Successful logon event evidence |
 | `16-eid4624-source-ip-details.png` | Event fields showing source IP and logon details |
